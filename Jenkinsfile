@@ -20,6 +20,17 @@ pipeline {
         sh 'cat trufflehog'
       }
     }
+
+    stage('Snyk Test') {
+      steps {
+        echo 'Snyk Testing...'
+        snykSecurity(
+          snykInstallation: 'snyk@latest',
+          snykTokenId: 'synktoken',
+          // place other parameters here
+        )
+      }
+    }
   
     stage ('Source Composition Analysis') {
       steps {
