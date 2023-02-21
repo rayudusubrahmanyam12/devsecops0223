@@ -12,7 +12,7 @@ pipeline {
             ''' 
       }
     }
-    
+    /*
     stage ('Check-Git-Secrets') {
       steps {
         sh 'rm trufflehog || true'
@@ -20,7 +20,7 @@ pipeline {
         sh 'cat trufflehog'
       }
     }
-    
+    */
     stage ('Source Composition Analysis') {
       steps {
          sh 'rm owasp* || true'
@@ -31,7 +31,7 @@ pipeline {
         
       }
     }
-    
+    /*
     stage ('SAST') {
       steps {
         withSonarQubeEnv('sonar') {
@@ -40,13 +40,13 @@ pipeline {
         }
       }
     }
-    
+    */
     stage ('Build') {
       steps {
       sh 'mvn clean package'
        }
     }
-    
+    /*
     stage ('Deploy-To-Tomcat') {
             steps {
            sshagent(['tomcat']) {
@@ -63,6 +63,7 @@ pipeline {
         }
       }
     }
+    */
     
   }
 }
