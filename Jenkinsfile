@@ -20,7 +20,7 @@ pipeline {
         sh 'cat trufflehog'
       }
     }
-    */
+  
     stage ('Source Composition Analysis') {
       steps {
          sh 'rm owasp* || true'
@@ -31,7 +31,7 @@ pipeline {
         
       }
     }
-    /*
+  
     stage ('SAST') {
       steps {
         withSonarQubeEnv('sonar') {
